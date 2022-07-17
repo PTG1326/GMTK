@@ -8,7 +8,7 @@ public class Rotate_Pentagon : MonoBehaviour
     public Rigidbody2D player;
     public GameObject anchor;
     float rotationAmount = .1f;
-    float delaySpeed = 0.003f;
+    float delaySpeed = 0.0013f;
 
     public IEnumerator SlowSpin(){
         float count = 0;
@@ -21,7 +21,7 @@ public class Rotate_Pentagon : MonoBehaviour
             yield return new WaitForSeconds(delaySpeed);
     }
     
-            player.AddForce((new Vector2(35 , 35)), ForceMode2D.Impulse) ;
+            player.AddForce((new Vector2(16 , 16)), ForceMode2D.Impulse) ;
             Debug.Log("hello");
             player.gravityScale = 5;
             player.rotation = 0;
@@ -40,7 +40,7 @@ public class Rotate_Pentagon : MonoBehaviour
             yield return new WaitForSeconds(delaySpeed);
     }
     
-            player.AddForce((new Vector2(-35 , 35)), ForceMode2D.Impulse) ;
+            player.AddForce((new Vector2(-16 , 16)), ForceMode2D.Impulse) ;
             Debug.Log("hello");
             player.gravityScale = 5;
             player.rotation = 0;
