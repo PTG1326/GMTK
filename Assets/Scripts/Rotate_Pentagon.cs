@@ -9,6 +9,8 @@ public class Rotate_Pentagon : MonoBehaviour
     public GameObject anchor;
     float rotationAmount = .1f;
     float delaySpeed = 0.0013f;
+    public Camera cam;
+    float camCount;
 
     public IEnumerator SlowSpin(){
         float count = 0;
@@ -38,14 +40,25 @@ public class Rotate_Pentagon : MonoBehaviour
             player.velocity = new Vector2(0,0);
             count += rotationAmount;
             yield return new WaitForSeconds(delaySpeed);
-    }
+        }
     
             player.AddForce((new Vector2(-20 , 20)), ForceMode2D.Impulse) ;
             Debug.Log("hello");
             player.gravityScale = 5;
             player.rotation = 0;
             
-            
+    }
+
+    public IEnumerator zoom()
+    {
+        float camcount = 0f;
+        while (camcount < 5f)
+        {
+            cam.orthographicSize += 0.5f;
+            camcount += 0.5f;
+            yield return new WaitForSeconds(0.5f);
+        }
+        cam.orthographicSize = 2.4f;
     }
 
     
