@@ -116,6 +116,7 @@ public class DiceRoll : MonoBehaviour
             rollAnimator.SetBool("isRoll", true);
             yield return new WaitForSeconds(5);
             roll();
+            yield return new WaitForSeconds(2);
             FindObjectOfType<Powerpups>().powerups_decider();
 
     }

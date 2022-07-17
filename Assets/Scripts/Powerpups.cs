@@ -17,6 +17,7 @@ public class Powerpups : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D cd){
          Canvas.SetActive(true);
+         rb.constraints = RigidbodyConstraints2D.FreezePosition;
          }
 
     public void powerups_decider(){
@@ -44,5 +45,6 @@ public class Powerpups : MonoBehaviour
             Debug.Log("kuch nahi hua bhai");
          }
          Canvas.SetActive(false);
+         rb.constraints = ~RigidbodyConstraints2D.FreezePosition;
     }
 }
