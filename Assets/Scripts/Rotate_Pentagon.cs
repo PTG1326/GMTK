@@ -21,7 +21,7 @@ public class Rotate_Pentagon : MonoBehaviour
             yield return new WaitForSeconds(delaySpeed);
     }
     
-            player.AddForce((new Vector2(16 , 16)), ForceMode2D.Impulse) ;
+            player.AddForce((new Vector2(20 , 20)), ForceMode2D.Impulse) ;
             Debug.Log("hello");
             player.gravityScale = 5;
             player.rotation = 0;
@@ -40,7 +40,7 @@ public class Rotate_Pentagon : MonoBehaviour
             yield return new WaitForSeconds(delaySpeed);
     }
     
-            player.AddForce((new Vector2(-16 , 16)), ForceMode2D.Impulse) ;
+            player.AddForce((new Vector2(-20 , 20)), ForceMode2D.Impulse) ;
             Debug.Log("hello");
             player.gravityScale = 5;
             player.rotation = 0;
