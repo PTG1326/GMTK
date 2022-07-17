@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class DiceRoll : MonoBehaviour
 {
     public Animator rollAnimator;
@@ -13,8 +14,8 @@ public class DiceRoll : MonoBehaviour
     public GameObject imageFour;
     public GameObject imageFive;
     public GameObject imageSix;
+    public int num = 0;
     
-    private int num = 0;
 
     void Start()
     {
@@ -29,6 +30,8 @@ public class DiceRoll : MonoBehaviour
 
     public void roll()
     {
+        num = 0;
+
         rollAnimator.SetBool("isRoll", false);
                 
         num = Random.Range(1, 6);
@@ -105,8 +108,16 @@ public class DiceRoll : MonoBehaviour
 
     public void rollDelay()
     {
-        rollAnimator.SetBool("isRoll", true);
-        Invoke("roll", 4f);
+        StartCoroutine(rollAndPowerup());
+        
+    }
+
+    public IEnumerator rollAndPowerup(){
+            rollAnimator.SetBool("isRoll", true);
+            yield return new WaitForSeconds(5);
+            roll();
+            FindObjectOfType<Powerpups>().powerups_decider();
+
     }
 
 }
