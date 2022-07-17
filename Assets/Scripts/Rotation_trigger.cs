@@ -5,6 +5,7 @@ using UnityEngine;
 public class Rotation_trigger : MonoBehaviour
 {
     public Collider2D cd;
+    public Rigidbody2D rb;
     
        // Start is called before the first frame update
     void Start()
@@ -15,8 +16,9 @@ public class Rotation_trigger : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D cd)
     {
-        FindObjectOfType<Rotate_Pentagon>().Rotate();
-        FindObjectOfType<PlayerController>().transform.position = new Vector2(-2959, 1851);
+        StartCoroutine(FindObjectOfType<Rotate_Pentagon>().SlowSpin());
+        // FindObjectOfType<PlayerController>().transform.position = new Vector2(-2466, (float)1057.9);
+
         Debug.Log("hello");
         
     }

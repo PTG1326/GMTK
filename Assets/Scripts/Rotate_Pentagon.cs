@@ -5,14 +5,27 @@ using UnityEngine;
 public class Rotate_Pentagon : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public Rigidbody2D player;
     public GameObject anchor;
-    // Start is called before the first frame update
+    float rotationAmount = .1f;
+    float delaySpeed = 0.003f;
 
-    // Update is called once per frame
-    public void Rotate()
-    {
-            Vector3 axis = new Vector3(0, 0, 1);
-            rb.transform.RotateAround(anchor.transform.localPosition, Vector3.back, (float)72);
+    public IEnumerator SlowSpin(){
+        float count = 0;
+        while(count <= 72){
+            rb.transform.RotateAround(anchor.transform.localPosition, Vector3.forward, rotationAmount);
+            player.transform.RotateAround(anchor.transform.localPosition, Vector3.forward, rotationAmount);
+            player.gravityScale = 0;
+            player.velocity = new Vector2(0,0);
+            count += rotationAmount;
+            yield return new WaitForSeconds(delaySpeed);
+    }
+            player.AddForce((new Vector2(50 , 50)), ForceMode2D.Impulse) ;
+            Debug.Log("hello");
+            player.gravityScale = 5;
+            player.rotation = 0;
+            
+            
     }
     
     
